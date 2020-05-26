@@ -4,3 +4,4 @@ ro.board.platform=kona
 vendor.gatekeeper.disable_spu=true
 ro.boot.dynamic_partitions=true
 ro.adb.secure=0
+fbe.metadata.wrappedkey=true
