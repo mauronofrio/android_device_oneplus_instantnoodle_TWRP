@@ -7,6 +7,7 @@ odm			/odm		    ext4				slotselect;display="Odm";logical
 /super      emmc    /dev/block/bootdevice/by-name/super        flags=display="super";backup=1;flashimg=1
 /metadata	ext4	/dev/block/bootdevice/by-name/metadata 					
 /data		ext4	/dev/block/bootdevice/by-name/userdata					flags=fileencryption=ice:aes-256-cts;wrappedkey;keydirectory=/metadata/vold/metadata_encryption
+/recovery   emmc    /dev/block/bootdevice/by-name/recovery                    flags=slotselect;display="Recovery";backup=1;flashimg=1
 /firmware	vfat	/dev/block/bootdevice/by-name/modem					flags=slotselect;display="Firmware";mounttodecrypt;fsflags=ro
 /misc		emmc	/dev/block/bootdevice/by-name/misc
 /modem		emmc	/dev/block/bootdevice/by-name/modem					flags=slotselect;backup=1;display="Modem"
