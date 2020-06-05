@@ -17,7 +17,7 @@
 # Release name
 PRODUCT_RELEASE_NAME := instantnoodle
 
-$(call inherit-product, build/target/product/aosp_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
