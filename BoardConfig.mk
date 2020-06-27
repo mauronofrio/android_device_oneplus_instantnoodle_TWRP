@@ -161,6 +161,11 @@ AB_OTA_PARTITIONS += \
     vbmeta \
     dtbo 
 
+# tell update_engine to not change dynamic partition table during updates
+# needed since our qti_dynamic_partitions does not include
+# vendor and odm and we also dont want to AB update them
+TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
+
 # Encryption
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
