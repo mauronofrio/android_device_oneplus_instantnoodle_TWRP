@@ -57,7 +57,7 @@ service prepdecrypt /sbin/prepdecrypt.sh
     group root
     seclabel u:r:recovery:s0
 
-service hwservicemanager /sbin/hwservicemanager
+service hwservicemanager /system/bin/hwservicemanager
     user root
     group root
     disabled
@@ -70,13 +70,13 @@ service boot-1-0 /sbin/android.hardware.boot@1.0-service
     disabled
     seclabel u:r:recovery:s0
 
-service servicemanager /sbin/servicemanager
+service servicemanager /system/bin/servicemanager
     user root
     group root readproc
     disabled
     seclabel u:r:recovery:s0
 
-service keystore_auth /sbin/keystore_auth
+service keystore_auth /system/bin/keystore_auth
     oneshot
     user system
     group root
@@ -84,7 +84,7 @@ service keystore_auth /sbin/keystore_auth
     seclabel u:r:recovery:s0
 
 # keystore is started and stopped on demand by TWRP
-service keystore /sbin/keystore /tmp/misc/keystore
+service keystore /system/bin/keystore /tmp/misc/keystore
     user root
     group root drmrpc readproc
     disabled
@@ -102,7 +102,7 @@ service keymaster-4-0 /sbin/android.hardware.keymaster@4.0-service-qti
     disabled
     seclabel u:r:recovery:s0
 
-service logd /sbin/logd
+service logd /system/bin/logd
     user root
     group root
     disabled
@@ -129,7 +129,7 @@ service unified-script /sbin/unified-script.sh
     seclabel u:r:recovery:s0
 
 # This helps fix ld.config.txt errors from the linker on Android 8.1+
-service ldconfigtxt /sbin/touch /sbin/ld.config.txt
+service ldconfigtxt /system/bin/touch /sbin/ld.config.txt
     oneshot
     seclabel u:r:recovery:s0
 
