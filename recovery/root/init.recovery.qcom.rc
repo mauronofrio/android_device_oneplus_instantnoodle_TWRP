@@ -57,25 +57,6 @@ service prepdecrypt /sbin/prepdecrypt.sh
     group root
     seclabel u:r:recovery:s0
 
-service hwservicemanager /system/bin/hwservicemanager
-    user root
-    group root
-    disabled
-    onrestart setprop hwservicemanager.ready false
-    seclabel u:r:recovery:s0
-
-service boot-1-0 /sbin/android.hardware.boot@1.0-service
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service servicemanager /system/bin/servicemanager
-    user root
-    group root readproc
-    disabled
-    seclabel u:r:recovery:s0
-
 service keystore_auth /system/bin/keystore_auth
     oneshot
     user system
@@ -145,8 +126,6 @@ on boot
 
 on init
     start logd
-    start hwservicemanager
-    start boot-1-0
     start prepdecrypt
     start time_daemon
     setprop crypto.ready 1
@@ -163,7 +142,6 @@ on property:crypto.ready=1
 on property:vendor.sys.listeners.registered=true
     start keymaster-4-0
     start gatekeeper-1-0
-    start servicemanager
     restart time_daemon
 
 on property:sys.usb.config=mtp,adb
